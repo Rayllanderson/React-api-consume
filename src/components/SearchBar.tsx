@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { SearchContext } from "../contexts/SearchContext";
 
 export function SearchBar() {

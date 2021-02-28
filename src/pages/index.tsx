@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import React, { useContext } from 'react'
+import React from 'react'
 import { CardList } from '../components/CardList'
 import { Modal } from '../components/Modal'
 import { SearchBar } from '../components/SearchBar'
-import { SearchContext, SearchProvider } from '../contexts/SearchContext'
+import { SearchProvider } from '../contexts/SearchContext'
 
 export default function Home() {
   return (

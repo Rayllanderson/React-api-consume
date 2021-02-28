@@ -1,5 +1,4 @@
 import { createContext, ReactNode, useState } from "react";
-import { Modal } from "../components/Modal";
 import { getAnimes } from "../services/api";
 import { Anime } from "../types/types";
 
