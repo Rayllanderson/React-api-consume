@@ -1,5 +1,8 @@
-const API_URL = `https://api.jikan.moe/v3/search/anime?q=`
+import axios from "axios";
 
-export function getAnimes(search: string) {
-  return fetch(API_URL + `${search}`);
+const API_URL = `https://api.jikan.moe/v3/search/anime?q=`
+const limit = 10;
+
+export async function getAnimes(search: string) {
+  return await axios(API_URL + `${search}&limit=${limit}`);
 }
