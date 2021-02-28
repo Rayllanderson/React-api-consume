@@ -26,9 +26,11 @@ export function SearchProvider({ children }: SearchProviderProps) {
   function consumeApi() {
     search.length >= 3 ?
       getAnimes(search)
-        .then(response => setAnimes(response.data.results))
+        .then(response => response.json())
+        .then(data => setAnimes(data.results))
         .catch(() => alert('Nenhum anime encontrado'))
       : alert('Pesquisa precisa de, no mínimo, 3 caracteres');
+      console.log(animes)
     animes.length == 0 && alert('Nenhum anime encontrado')
   }
 
