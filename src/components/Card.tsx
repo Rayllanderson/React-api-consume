@@ -1,16 +1,30 @@
-export function Card() {
+import { useContext } from "react";
+import { SearchContext } from "../contexts/SearchContext";
+import { Anime } from "../types/types";
+
+type Props = {
+  anime: Anime;
+}
+
+export function Card({ anime }: Props) {
+  const { onSelectAnime } = useContext(SearchContext);
   return (
-    <a className="col mb-4 text-decoration-none" data-toggle="modal" data-target="#exampleModal">
-      <div className="card h-60">
-        <img src="https:\/\/cdn.myanimelist.net\/images\/anime\/1775\/109514.jpg?s=7223653b9c57b539ca603e6881f0b9af" className="card-img-top" alt="..." />
-        <div className="text-center p-3">
-          <h5 className="card-title">Card title</h5>
+    <a className="col mb-4 text-decoration-none" onClick={() => onSelectAnime(anime)} 
+    data-toggle="modal" data-target="#exampleModal">
+        <div className="card h-100 flex-column">
+        <div className="text-center">
+          <img src={anime.image_url} className="card-img-top" alt="Imagem" />
         </div>
-        <div className="card-footer">
-          <p><i className="fas fa-star"></i> 8.45</p>
-          <p className="float-right"><i className="fas fa-play"></i> Episódios: 16 </p>
+          <div className="text-center pb-3 mb-3">
+            <h5 className="card-title d-flex align-items-center justify-content-center" style={{ minHeight: 100, maxHeight: 110 }}>{anime.title}</h5>
+          </div>
+        <div className="card-footer" style={{
+          position: 'absolute',
+          bottom: -5,  width: '100%'}}>
+          <p title="Score"><i className="fas fa-star"></i> {anime.score}</p>
+            <p className="float-right"><i className="fas fa-play"></i> Episódios: {anime.episodes} </p>
+          </div>
         </div>
-      </div>
-    </a>
+      </a>
   );
 }
