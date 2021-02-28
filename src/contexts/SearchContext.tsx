@@ -1,6 +1,7 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
 import { getAnimes } from "../services/api";
 import { Anime } from "../types/types";
+import { FilterContext } from "./FilterContext";
 
 interface SearchContextData {
   animes: Anime[],
@@ -22,27 +23,32 @@ export function SearchProvider({ children }: SearchProviderProps) {
   const [search, setSearch] = useState('');
   const [animes, setAnimes] = useState<Anime[]>([])
   const [selectedAnime, setSelectedAnime] = useState<Anime>();
+  const { limitNumber, searchType } = useContext(FilterContext);
 
   function handleOnChange(e) {
-    console.log(e.target.value)
     setSearch(e.target.value)
   }
 
   function consumeApi() {
     const validSearch: boolean = search.length >= 3;
     if (validSearch) {
-      getAnimes(search)
+      getAnimes(search, searchType, limitNumber)
         .then(response => setAnimes(response.data.results))
         .catch(() => alert('Nenhum anime encontrado'))
-    } else
-      search.length == 0 ? clearCards() : alert('Pesquisa precisa de, no mínimo, 3 caracteres');
+    } else {
+      if (search.length == 0) {
+        clearCards()
+      } else
+        alert('Pesquisa precisa de, no mínimo, 3 caracteres');
+    }
   }
 
   function clearCards() {
     setSearch('');
+    setAnimes([])
   }
 
-  function onSelectAnime (anime: Anime){
+  function onSelectAnime(anime: Anime) {
     setSelectedAnime(anime);
   }
 

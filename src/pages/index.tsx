@@ -5,6 +5,7 @@ import { Filter } from '../components/Filter'
 import { ModalAnime } from '../components/ModalAnime'
 import { ModalFilter } from '../components/ModalFilter'
 import { SearchBar } from '../components/SearchBar'
+import { FilterProvider } from '../contexts/FilterContext'
 import { SearchProvider } from '../contexts/SearchContext'
 
 export default function Home() {
@@ -18,16 +19,18 @@ export default function Home() {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
       </Head>
-      <SearchProvider>
-        <div className="container px-4">
-          <SearchBar />
-          <Filter />
-          <br />
-          <CardList />
-        </div>
-        <ModalAnime />
-        <ModalFilter/>
-      </SearchProvider>
+      <FilterProvider>
+        <SearchProvider>
+          <div className="container px-4">
+            <SearchBar />
+            <Filter />
+            <br />
+            <CardList />
+          </div>
+          <ModalAnime />
+          <ModalFilter />
+        </SearchProvider>
+      </FilterProvider>
     </div>
   )
 }

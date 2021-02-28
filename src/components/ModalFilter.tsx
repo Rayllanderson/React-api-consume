@@ -1,24 +1,12 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import styles from '../../styles/filter.module.css';
+import { FilterContext } from '../contexts/FilterContext';
 
 
 
 export function ModalFilter() {
 
-  const [limitNumber, setLimitNumber] = useState(9)
-  const [searchType, setSearchType] = useState('anime');
-
-  function handleLimitChange(e) {
-    setLimitNumber(e.target.value)
-  }
-  function handleSelectChange(e) {
-    setSearchType(e.target.value);
-  }
-
-  function resetFilter(){
-    setLimitNumber(9);
-    setSearchType('anime');
-  }
+  const{limitNumber, searchType, handleLimitChange, handleSelectChange, resetFilter} = useContext(FilterContext);
 
   return (
     <div className="modal fade" id="modalFilter">
@@ -29,22 +17,22 @@ export function ModalFilter() {
               <span aria-hidden="true" style={{ color: 'white' }} onClick={resetFilter}>&times;</span>
             </button>
           </div>
-          <div className="modal-body">
+          <div className="modal-body row d-flex justify-content-center">
 
-            <div className="form-group">
+            <div className="form-group col-md-10">
               <div className={styles.inputGroup}>
                 <label className={styles.label}>Resultados por pesquisa:</label>
                 <input type="number" className={styles.input + ' form-control'} value={limitNumber} onChange={handleLimitChange} />
               </div>
             </div>
-            <div className="form-group">
+            <div className="form-group col-md-10">
               <label className={styles.label}> Pesquisando por </label>
               <select onChange={handleSelectChange} value={searchType} className={styles.input + ' form-control'}>
                 <option value="anime" >Anime</option>
                 <option value="manga" >Mangá</option>
               </select>
             </div>
-            <div className="form-group">
+            <div className="form-group col-md-10">
               <button className="btn btn-p mr-3" data-dismiss="modal">Salvar</button>
               <button className="btn btn-b" data-dismiss="modal" onClick={resetFilter}>Cancelar</button>
             </div>
