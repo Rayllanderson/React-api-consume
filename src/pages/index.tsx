@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import React from 'react'
+import { Card } from '../components/Card'
 import { SearchBar } from '../components/SearchBar'
 
 export default function Home() {
@@ -17,6 +18,11 @@ export default function Home() {
       <div className="container px-4">
         <SearchBar/>
         <br />
+        <div className="row row-cols-1 row-cols-md-3">
+            <Card/>
+            <Card />
+            <Card />
+        </div>
       </div>
     </div>
   )

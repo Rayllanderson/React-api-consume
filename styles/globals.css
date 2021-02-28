@@ -56,3 +56,35 @@ body {
     outline: none;
     box-shadow: none;
 }
+
+.card-title {
+    color: var(--currentLine)
+}
+
+.card-footer {
+    box-sizing: border-box;
+}
+
+.card-footer p {
+    display: inline-block;
+    color: var(--currentLine);
+}
+
+p {
+    color: var(--currentLine)
+}
+
+.modal-content {
+    padding: 10px;
+    background: var(--background)
+}
+
+.modal-title,
+.modal-content p {
+    color: var(--white);
+}
+
+.modal-infos p {
+    display: inline-block;
+    margin-right: 2%;
+}
