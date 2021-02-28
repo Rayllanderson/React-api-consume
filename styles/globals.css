@@ -1,16 +1,58 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    padding: 0;
+    margin: 0;
+    font-family: Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+:root {
+    --background: #282A36;
+    --currentLine: #44475a;
+    --white: #f8f8f2;
+    --pink: #ff79c6;
 }
 
 a {
-  text-decoration: none;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
+body {
+    background: #282A36
+}
+
+.container-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-search {
+    background: var(--pink);
+    color: var(--white)
+}
+
+.btn {
+    transition: 0.2s;
+}
+
+.btn-search:hover {
+    background: #ff79c5e5;
+    color: #f6f6f4f6
+}
+
+.btn-search.active.focus,
+.btn-search.active:focus,
+.btn-search:active.focus,
+.btn-search:active:focus,
+.btn-search:active:hover {
+    color: #f6f6f4f6;
+    background-color: #e967b0ec;
+    border-color: #e967b0ec;
+    outline: none;
+    box-shadow: none;
+}
