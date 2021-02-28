@@ -6,11 +6,10 @@ import { SearchBar } from '../components/SearchBar'
 import { SearchContext, SearchProvider } from '../contexts/SearchContext'
 
 export default function Home() {
-  const { animes } = useContext(SearchContext);
   return (
     <div >
       <Head>
-        <title>Create Next App</title>
+        <title>MyAnimeList API</title>
         <link rel="icon" href="/favicon.ico" />
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -23,9 +22,7 @@ export default function Home() {
           <br />
           <CardList />
         </div>
-
         <Modal />
-
       </SearchProvider>
     </div>
   )

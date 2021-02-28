@@ -5,8 +5,8 @@ export type Anime = {
   type: string;
   episodes: number;
   score: number;
-  startDate: string;
-  endDate: string;
+  start_date: string;
+  end_date: string;
   members: number;
   url: string;
   image_url: string;

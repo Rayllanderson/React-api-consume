@@ -1,12 +1,15 @@
 import { createContext, ReactNode, useState } from "react";
+import { Modal } from "../components/Modal";
 import { getAnimes } from "../services/api";
 import { Anime } from "../types/types";
 
 interface SearchContextData {
   animes: Anime[],
   search: string,
+  selectedAnime: Anime,
   handleOnChange: (e) => void,
-  consumeApi: () => void;
+  consumeApi: () => void,
+  onSelectAnime: (anime: Anime) => void;
 }
 
 interface SearchProviderProps {
@@ -19,6 +22,7 @@ export function SearchProvider({ children }: SearchProviderProps) {
 
   const [search, setSearch] = useState('');
   const [animes, setAnimes] = useState<Anime[]>([])
+  const [selectedAnime, setSelectedAnime] = useState<Anime>();
 
   function handleOnChange(e) {
     console.log(e.target.value)
@@ -39,12 +43,18 @@ export function SearchProvider({ children }: SearchProviderProps) {
     setSearch('');
   }
 
+  function onSelectAnime (anime: Anime){
+    setSelectedAnime(anime);
+  }
+
   return (
     <SearchContext.Provider value={{
       animes,
       search,
+      selectedAnime,
       handleOnChange,
-      consumeApi
+      consumeApi,
+      onSelectAnime
     }}>
       {children}
     </SearchContext.Provider>
