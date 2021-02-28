@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { SearchContext } from "../contexts/SearchContext";
 
 
-export function Modal() {
+export function ModalAnime() {
   const { selectedAnime } = useContext(SearchContext);
   function convertDate(date: string) {
     if (date) {
@@ -10,6 +10,9 @@ export function Modal() {
     }
   }
 
+  function convertStartDate(date: string){
+    return convertDate(date) ? convertDate(date) : 'Não iniciado'
+  }
   function convertEndDate(date: string){
     return convertDate(date) ? convertDate(date) : 'Não finalizado'
   }
@@ -29,11 +32,11 @@ export function Modal() {
             </div>
             <div className="modal-infos text-justify pl-3 pr-3 pt-3">
               <p> {selectedAnime.synopsis} </p>
-              <p><i className="fas fa-star"></i> {selectedAnime.score}</p>
-              <p><i className="fas fa-play"></i> {selectedAnime.episodes}</p>
+              <p title="Score"><i className="fas fa-star"></i> {selectedAnime.score}</p>
+              <p title="Episódios"><i className="fas fa-play"></i> Eps: {selectedAnime.episodes}</p>
               <p> <i className="fas fa-tv"></i> Tipo: {selectedAnime.type}</p>
               <p> <i className="fas fa-users"></i> Membros: {selectedAnime.members}</p>
-              <p><i className="far fa-calendar-alt"></i> Início: {convertDate(selectedAnime.start_date)}</p>
+              <p><i className="far fa-calendar-alt"></i> Início: {convertStartDate(selectedAnime.start_date)}</p>
               <p><i className="fas fa-calendar-alt"></i> Finalização: {convertEndDate(selectedAnime.end_date)}</p>
             </div>
             <div className="pl-3 pr-3 pb-3 d-flex justify-content-end">

@@ -12,12 +12,16 @@ export function Card({ anime }: Props) {
     <a className="col mb-4 text-decoration-none" onClick={() => onSelectAnime(anime)} 
     data-toggle="modal" data-target="#exampleModal">
         <div className="card h-100 flex-column">
-          <img src={anime.image_url} className="img-thumbnail h-100" alt="Imagem" />
-          <div className="text-center p-3">
-            <h5 className="card-title">{anime.title}</h5>
+        <div className="text-center">
+          <img src={anime.image_url} className="card-img-top" alt="Imagem" />
+        </div>
+          <div className="text-center pb-3 mb-3">
+            <h5 className="card-title d-flex align-items-center justify-content-center" style={{ minHeight: 100, maxHeight: 110 }}>{anime.title}</h5>
           </div>
-          <div className="card-footer">
-            <p><i className="fas fa-star"></i> {anime.score}</p>
+        <div className="card-footer" style={{
+          position: 'absolute',
+          bottom: -5,  width: '100%'}}>
+          <p title="Score"><i className="fas fa-star"></i> {anime.score}</p>
             <p className="float-right"><i className="fas fa-play"></i> Episódios: {anime.episodes} </p>
           </div>
         </div>

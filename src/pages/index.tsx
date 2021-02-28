@@ -1,7 +1,9 @@
 import Head from 'next/head'
 import React from 'react'
 import { CardList } from '../components/CardList'
-import { Modal } from '../components/Modal'
+import { Filter } from '../components/Filter'
+import { ModalAnime } from '../components/ModalAnime'
+import { ModalFilter } from '../components/ModalFilter'
 import { SearchBar } from '../components/SearchBar'
 import { SearchProvider } from '../contexts/SearchContext'
 
@@ -19,10 +21,12 @@ export default function Home() {
       <SearchProvider>
         <div className="container px-4">
           <SearchBar />
+          <Filter />
           <br />
           <CardList />
         </div>
-        <Modal />
+        <ModalAnime />
+        <ModalFilter/>
       </SearchProvider>
     </div>
   )
