@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import React from 'react'
 import { Card } from '../components/Card'
+import { Modal } from '../components/Modal'
 import { SearchBar } from '../components/SearchBar'
 
 export default function Home() {
@@ -24,6 +25,8 @@ export default function Home() {
             <Card />
         </div>
       </div>
+
+      <Modal/>
     </div>
   )
 }
