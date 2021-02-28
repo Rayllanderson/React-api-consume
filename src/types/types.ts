@@ -11,3 +11,7 @@ export type Anime = {
   url: string;
   image_url: string;
 }
+
+export type TypeOfSearch= {
+  type: string;
+}

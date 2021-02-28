@@ -11,7 +11,7 @@ export function SearchBar() {
       onChange={handleOnChange} 
       value={search} placeholder="Busque um anime..."/>
       <div className="input-group-append">
-        <button type="button" className="btn btn-search" 
+        <button type="button" className="btn btn-p btn-search" 
         onClick={consumeApi}> &nbsp; <i className="fa fa-search"></i> &nbsp;</button>
       </div>
     </div>
