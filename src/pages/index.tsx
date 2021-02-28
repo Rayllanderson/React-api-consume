@@ -3,6 +3,7 @@ import React from 'react'
 import { Card } from '../components/Card'
 import { Modal } from '../components/Modal'
 import { SearchBar } from '../components/SearchBar'
+import { SearchProvider } from '../contexts/SearchContext'
 
 export default function Home() {
   return (
@@ -15,18 +16,20 @@ export default function Home() {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
       </Head>
-
-      <div className="container px-4">
-        <SearchBar/>
-        <br />
-        <div className="row row-cols-1 row-cols-md-3">
-            <Card/>
-            <Card />
-            <Card />
+      <SearchProvider>
+        <div className="container px-4">
+          <SearchBar/>
+          <br />
+          <div className="row row-cols-1 row-cols-md-3">
+              <Card/>
+              <Card />
+              <Card />
+          </div>
         </div>
-      </div>
 
-      <Modal/>
+        <Modal/>
+
+      </SearchProvider>
     </div>
   )
 }
