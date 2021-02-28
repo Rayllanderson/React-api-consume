@@ -4,7 +4,6 @@ import { Anime } from "../types/types";
 
 interface SearchContextData {
   animes: Anime[],
-  search: string,
   handleOnChange: (e) => void,
   consumeApi: () => void;
 }
@@ -21,28 +20,23 @@ export function SearchProvider({ children }: SearchProviderProps) {
   const [animes, setAnimes] = useState<Anime[]>([])
 
   function handleOnChange(e) {
-    console.log(e.target.value)
     setSearch(e.target.value)
   }
 
   function consumeApi() {
-    const validSearch: boolean = search.length >= 3;
-    if (validSearch) {
+    search.length >= 3 ?
       getAnimes(search)
-        .then(response => setAnimes(response.data.results))
+        .then(response => response.json())
+        .then(data => setAnimes(data.results))
         .catch(() => alert('Nenhum anime encontrado'))
-    } else
-      search.length == 0 ? clearCards() : alert('Pesquisa precisa de, no mínimo, 3 caracteres');
-  }
-
-  function clearCards() {
-    setSearch('');
+      : alert('Pesquisa precisa de, no mínimo, 3 caracteres');
+      console.log(animes)
+    animes.length == 0 && alert('Nenhum anime encontrado')
   }
 
   return (
     <SearchContext.Provider value={{
       animes,
-      search,
       handleOnChange,
       consumeApi
     }}>

@@ -1,5 +1,5 @@
 export type Anime = {
-  mal_id: number;
+  malId: number;
   title: string;
   synopsis: string;
   type: string;
@@ -9,5 +9,5 @@ export type Anime = {
   endDate: string;
   members: number;
   url: string;
-  image_url: string;
+  imageUrl: string;
 }

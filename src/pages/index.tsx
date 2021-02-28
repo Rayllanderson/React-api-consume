@@ -1,12 +1,11 @@
 import Head from 'next/head'
-import React, { useContext } from 'react'
-import { CardList } from '../components/CardList'
+import React from 'react'
+import { Card } from '../components/Card'
 import { Modal } from '../components/Modal'
 import { SearchBar } from '../components/SearchBar'
-import { SearchContext, SearchProvider } from '../contexts/SearchContext'
+import { SearchProvider } from '../contexts/SearchContext'
 
 export default function Home() {
-  const { animes } = useContext(SearchContext);
   return (
     <div >
       <Head>
@@ -19,12 +18,16 @@ export default function Home() {
       </Head>
       <SearchProvider>
         <div className="container px-4">
-          <SearchBar />
+          <SearchBar/>
           <br />
-          <CardList />
+          <div className="row row-cols-1 row-cols-md-3">
+              <Card/>
+              <Card />
+              <Card />
+          </div>
         </div>
 
-        <Modal />
+        <Modal/>
 
       </SearchProvider>
     </div>
