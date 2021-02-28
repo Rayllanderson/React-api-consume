@@ -22,7 +22,7 @@ export function ModalFilter() {
             <div className="form-group col-md-10">
               <div className={styles.inputGroup}>
                 <label className={styles.label}>Resultados por pesquisa:</label>
-                <input type="number" className={styles.input + ' form-control'} value={limitNumber} onChange={handleLimitChange} />
+                <input type="number" min="1" max="50" className={styles.input + ' form-control'} value={limitNumber} onChange={handleLimitChange} />
               </div>
             </div>
             <div className="form-group col-md-10">
