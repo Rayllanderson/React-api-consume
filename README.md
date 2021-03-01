@@ -9,8 +9,8 @@ A aplicação é uma Live search, na qual traz uma lista de animes ou mangás qu
 
 ## Layout web
 
-<img src="https://user-images.githubusercontent.com/63964369/109513667-1d40f480-7a84-11eb-88bc-209df0665704.png" width="85%"/>
-<img src="https://user-images.githubusercontent.com/63964369/109513860-4792b200-7a84-11eb-8a36-7ecee29c849e.png" width="85%"/>
+<img src="https://user-images.githubusercontent.com/63964369/109513667-1d40f480-7a84-11eb-88bc-209df0665704.png" width="97%"/>
+<img src="https://user-images.githubusercontent.com/63964369/109513860-4792b200-7a84-11eb-8a36-7ecee29c849e.png" width="97%"/>
 
 ![ezgif com-gif-maker (1)-min](https://user-images.githubusercontent.com/63964369/109510137-6b53f900-7a80-11eb-897b-c81d2946152f.gif)
 
