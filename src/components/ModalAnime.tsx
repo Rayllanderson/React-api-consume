@@ -16,8 +16,9 @@ export function ModalAnime() {
   function convertEndDate(date: string) {
     return convertDate(date) ? convertDate(date) : 'Não finalizado'
   }
-  const quantityDescription = selectedAnime.episodes ? `Eps:  ${selectedAnime.episodes}` : `Caps: ${selectedAnime.chapters}`;
-  const quantityClassName = selectedAnime.episodes ? "fas fa-play" : "fas fa-book";
+
+  const quantityDescription = selectedAnime && (selectedAnime.episodes ? `Eps:  ${selectedAnime.episodes}` : `Caps: ${selectedAnime.chapters}`);
+  const quantityClassName = selectedAnime && (selectedAnime.episodes ? "fas fa-play" : "fas fa-book");
   return (
     selectedAnime ?
       <div className="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
