@@ -4,6 +4,7 @@ export type Anime = {
   synopsis: string;
   type: string;
   episodes: number;
+  chapters: string;
   score: number;
   start_date: string;
   end_date: string;

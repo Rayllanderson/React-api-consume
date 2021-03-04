@@ -8,6 +8,8 @@ type Props = {
 
 export function Card({ anime }: Props) {
   const { onSelectAnime } = useContext(SearchContext);
+  const quantityDescription = anime.episodes ? `Episódios:  ${anime.episodes}` : `Capítulos: ${anime.chapters}`;
+  const quantityClassName = anime.episodes ? "fas fa-play" : "fas fa-book";
   return (
     <a className="col mb-4 text-decoration-none" onClick={() => onSelectAnime(anime)} 
     data-toggle="modal" data-target="#exampleModal">
@@ -22,7 +24,7 @@ export function Card({ anime }: Props) {
           position: 'absolute',
           bottom: -5,  width: '100%'}}>
           <p title="Score"><i className="fas fa-star"></i> {anime.score}</p>
-            <p className="float-right"><i className="fas fa-play"></i> Episódios: {anime.episodes} </p>
+          <p className="float-right"><i className={quantityClassName}></i> {quantityDescription} </p>
           </div>
         </div>
       </a>
