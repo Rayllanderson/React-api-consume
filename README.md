@@ -34,7 +34,7 @@ Pré-requisitos: npm / yarn
 git clone <https://github.com/Rayllanderson/react-api-consume.git>
 
 # entrar na pasta do projeto
-cd front-web
+cd react-api-consume
 
 # instalar dependências
 yarn install
